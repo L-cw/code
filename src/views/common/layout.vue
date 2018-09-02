@@ -1,7 +1,7 @@
 <template>
   <div class="layout" :style="'min-height:' + pageHeight + 'px;'">
     <page-header></page-header>
-    <router-view></router-view>
+    <router-view/>
     <page-footer></page-footer>
   </div>
 </template>
@@ -24,5 +24,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+  .layout {
+    padding-top: 60px;
+  }
 </style>

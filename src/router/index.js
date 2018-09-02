@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Layout from '@/views/common/layout'
 
 Vue.use(Router)
 
@@ -14,7 +13,7 @@ export default new Router({
       },
       children: [
         {
-          path: '/index',
+          path: '/',
           component: resolve => {
             require(['@/views/index.vue'], resolve)
           },

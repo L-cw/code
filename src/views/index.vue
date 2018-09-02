@@ -1,8 +1,7 @@
 <template>
   <div class="topic-cont clearfix" :style="'min-height:'+pageHeight+'px;'">
     <div class="content">
-      <div class="topic-left"></div>
-      <div class="topic-right"></div>
+      <h1>This is Index Page</h1>
     </div>
   </div>
 </template>

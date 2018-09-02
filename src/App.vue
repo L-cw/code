@@ -13,6 +13,11 @@ export default {
 <style>
 @import url("./assets/less/base.less");
 @import url("./assets/less/reset.less");
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
