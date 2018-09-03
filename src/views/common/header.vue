@@ -30,6 +30,7 @@ export default {
     height: 60px;
     transition: all .5s ease 0s;
     box-shadow: 0 0 10px #ccc;
+    background-color: #fff;
     .nav-item {
       padding: 20px 0;
       margin-right: 20px;
