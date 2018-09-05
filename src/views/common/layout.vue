@@ -1,7 +1,9 @@
 <template>
   <div class="layout" :style="'min-height:' + pageHeight + 'px;'">
     <page-header></page-header>
-    <router-view/>
+    <div class="layout-content">
+      <router-view/>
+    </div>
     <page-footer></page-footer>
   </div>
 </template>
@@ -24,7 +26,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  @import "../../assets/less/base.less";
+
   .layout {
-    padding-top: 60px;
+    padding-top: @header-height;
+    .layout-content {
+      min-height: calc(100vh - @header-height - @footer-height);
+    }
   }
 </style>
