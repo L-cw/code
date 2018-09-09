@@ -1,32 +1,13 @@
 <template>
   <div class="topic-cont clearfix">
     <div class="content">
-      <h1>This is Index Page</h1>
-      <div class="test"></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'index',
-  data () {
-    return {
-      pageHeight: 0
-    }
-  },
-  // methods: {
-  //   handleWindowResize () {
-  //     this.pageHeight = window.innerHeight - 130
-  //   }
-  // },
-  // created () {
-  //   this.pageHeight = window.innerHeight - 130
-  //   window.addEventListener('resize', this.handleWindowResize)
-  // },
-  // destroyed () {
-  //   window.removeEventListener('resize', this.handleWindowResize)
-  // }
+  name: 'index'
 }
 </script>
 

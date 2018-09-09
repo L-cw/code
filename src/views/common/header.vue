@@ -2,13 +2,10 @@
   <div class="page-header">
     <div class="content">
       <li class="nav-item fl">
-        <a href="/">首页</a>
+        <router-link to="/">首页</router-link>
       </li>
       <li class="nav-item fl">
-        <a href="/"> js </a>
-      </li>
-      <li class="nav-item fl">
-        <a href="/"> css </a>
+        <router-link to="/shareCode">代码分享</router-link>
       </li>
     </div>
   </div>
