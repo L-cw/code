@@ -1,9 +1,7 @@
 <template>
   <div class="layout" :style="'min-height:' + pageHeight + 'px;'">
     <page-header></page-header>
-    <div class="layout-content">
-      <router-view/>
-    </div>
+    <router-view/>
     <page-footer></page-footer>
   </div>
 </template>
@@ -30,8 +28,5 @@ export default {
 
   .layout {
     padding-top: @header-height;
-    .layout-content {
-      min-height: calc(100vh - @header-height - @footer-height);
-    }
   }
 </style>
