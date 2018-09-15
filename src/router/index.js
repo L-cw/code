@@ -29,8 +29,36 @@ export default new Router({
           name: 'index'
         },
         {
-          path: 'show-everything',
+          path: 'showEverything',
           component: showEverything
+        },
+        {
+          path: '/shareCode',
+          component: resolve => {
+            require(['@/views/shareCode/index.vue'], resolve)
+          },
+          meta: {
+            title: {
+              'cn': '代码分享',
+              'en': 'Share Code'
+            },
+            requireAuth: false
+          },
+          name: 'sharecode'
+        },
+        {
+          path: '/shareCode/detail',
+          component: resolve => {
+            require(['@/views/shareCode/codeContent.vue'], resolve)
+          },
+          meta: {
+            title: {
+              'cn': '代码详情',
+              'en': 'Code Detail'
+            },
+            requireAuth: false
+          },
+          name: 'codecontent'
         }
       ]
     }

@@ -1,49 +1,10 @@
 const toString = Object.prototype.toString
 
-/* eslint-disable */
-const TXT_MIME_MAP = [
-  'text/plain',
-  'text/x-php',
-  'text/html',
-  'text/html',
-  'text/javascript',
-  'text/css',
-  'text/rtf',
-  'text/rtfd',
-  'text/x-python',
-  'text/x-java-source',
-  'text/x-ruby',
-  'text/x-shellscript',
-  'text/x-perl',
-  'text/x-sql',
-  'text/javascript',
-  'application/javascript',
-  'application/x-javascript',
-  'application/json']
-
-const IMG_MIME_MAP = [
-  'image/x-ms-bmp',
-  'image/jpeg',
-  'image/jpeg',
-  'image/gif',
-  'image/png',
-  'image/tiff',
-  'image/tiff',
-  'image/x-targa',
-  'image/vnd.adobe.photosho']
-
-const VIDEO_MIME_MAP = [
-  'video/x-msvideo',
-  'video/x-dv',
-  'video/mp4',
-  'video/mpeg',
-  'video/mpeg',
-  'video/quicktime',
-  'video/x-ms-wmv',
-  'video/x-flv',
-  'video/x-matroska']
-/* eslint-enable */
-const pdfMime = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+const TXT_MAP = ['txt', 'js', 'css', 'html', 'htm', 'java', 'json']
+const IMG_MAP = ['png', 'jpg', 'gif']
+const VIDEO_MAP = ['webm', 'mp4', 'ogg']
+const PDF_MAP = ['pdf']
+const AUDIO_MAP = ['mp3', 'pgg', 'wav']
 
 class PreviewableFile {
   constructor(file) {
@@ -97,22 +58,35 @@ class PreviewableFile {
       this.emit('load', data, e)
     }
 
-    if (TXT_MIME_MAP.includes(this.file.type)) {
+    const ext = this.getFileExt(this.file)
+    if (TXT_MAP.includes(ext) || !this.file.type) {
       data.type = 'txt'
       fileReader.readAsText(this.file)
-    } else if (IMG_MIME_MAP.includes(this.file.type)) {
+    } else if (IMG_MAP.includes(ext)) {
       data.type = 'img'
       fileReader.readAsDataURL(this.file)
-    } else if (IMG_MIME_MAP.includes(this.file.type)) {
+    } else if (VIDEO_MAP.includes(ext)) {
       data.type = 'video'
-    } else if (pdfMime === this.file.type) {
+      this.emit('loadstart', data, null)
+      const videoURL = URL.createObjectURL(this.file)
+      data.result = videoURL
+      this.emit('progress', data, {loaded: 1, total: 1})
+      this.emit('load', data, {loaded: 1, total: 1})
+    } else if (PDF_MAP === ext) {
       data.type = 'pdf'
       fileReader.readAsDataURL(this.file)
-      // this.emit('loadstart', data, null)
-      // const pdfURL = URL.createObjectURL(this.file)
-      // data.result = pdfURL
-      // this.emit('progress', data, null)
-      // this.emit('load', data, null)
+    } else if (AUDIO_MAP.includes(ext)) {
+      data.type = 'audio'
+      this.emit('loadstart', data, null)
+      const videoURL = URL.createObjectURL(this.file)
+      data.result = videoURL
+      this.emit('progress', data, {loaded: 1, total: 1})
+      this.emit('load', data, {loaded: 1, total: 1})
+    } else {
+      data.type = 'none'
+      this.emit('loadstart', data, null)
+      this.emit('progress', data, {loaded: 1, total: 1})
+      this.emit('load', data, {loaded: 1, total: 1})
     }
   }
 

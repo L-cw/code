@@ -29,7 +29,7 @@
       <div class="upload-item__mask--ext">{{ext}}</div>
       <div class="upload-item__mask--preview">
         <i class="upload-item__mask--icon iconfont">&#xe600;</i>
-        点击预览
+        {{fileType === 'none' ? '无法预览' : '点击预览'}}
       </div>
     </div>
   </div>
@@ -76,7 +76,7 @@ export default {
         case 'txt':
           return {
             content: '&#xe732;',
-            color: '#000'
+            color: '#E6A23C'
           }
         case 'img':
           return {
@@ -93,6 +93,16 @@ export default {
             content: '&#xe614;',
             color: '#000'
           }
+        case 'audio':
+          return {
+            content: '&#xe63e;',
+            color: '#2b99ff'
+          }
+        case 'none':
+          return {
+            content: '&#xe621;',
+            color: '#000'
+          }
         default: return {}
       }
     }
@@ -102,7 +112,10 @@ export default {
       this.$emit('abort')
     },
     onPreviewClick() {
-      previewImg({ url: this.file })
+      previewImg({
+        type: this.fileType,
+        content: this.file
+      })
     }
   }
 }
@@ -142,7 +155,7 @@ export default {
     .upload-item__progress {
       position: relative;
       width: 70%;
-      margin: 5px 0 0 5px;
+      margin: 0 0 0 5px;
       border-radius: 20px;
       .upload-item__progress-item {
         width: 100%;
