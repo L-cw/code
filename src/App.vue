@@ -13,6 +13,7 @@ export default {
 <style>
 @import url("./assets/less/base.less");
 @import url("./assets/less/reset.less");
+@import url('./assets/less/element-ui.less');
 *{
   margin: 0;
   padding: 0;

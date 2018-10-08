@@ -10,6 +10,28 @@
             <el-button type="primary" @click="onSubmit">查询</el-button>
           </el-form-item>
         </el-form>
+        <div class="share-tab">
+          <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane name="js">
+              <span slot="label" class="share-tab-item"><i class="el-icon-tickets"></i> js</span>
+              <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                  <span>卡片名称</span>
+                  <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+                </div>
+                <div v-for="o in 4" :key="o" class="text item">
+                  列表内容
+                </div>
+              </el-card>
+            </el-tab-pane>
+            <el-tab-pane name="css">
+              <span slot="label" class="share-tab-item"><i class="el-icon-tickets"></i> css</span>
+            </el-tab-pane>
+            <el-tab-pane name="component">
+              <span slot="label" class="share-tab-item"><i class="el-icon-tickets"></i> Component</span>
+            </el-tab-pane>
+          </el-tabs>
+        </div>
       </div>
     </div>
   </div>
@@ -22,11 +44,21 @@ export default {
     return {
       searchForm: {
         content: ''
-      }
+      },
+      activeName: 'js'
     }
   },
   methods: {
+    getAllCode () {
+      // this.$http.post()
+    },
+    handleClick (tab, event) {
+      console.log(tab, event)
+    },
     onSubmit () {}
+  },
+  created () {
+    this.getAllCode()
   }
 }
 </script>
@@ -39,6 +71,12 @@ export default {
     background-color: @bg-default;
     .search-cont {
       width: 100%;
+    }
+    .share-tab {
+      .share-tab-item {
+        min-width: 100px;
+        padding: 0 10px;
+      }
     }
   }
 </style>
