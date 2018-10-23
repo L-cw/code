@@ -4,8 +4,8 @@
       class="upload__float-btn"
       :class="{'rotate180': uploadShow}"
       :style="floatBtnPos"
-      @mousedown.stop="onMousedown"
-      @mouseup.stop="onMouseup">
+      @mousedown.stop.prevent="onMousedown"
+      @mouseup.stop.prevent="onMouseup">
     </div>
 
     <div
@@ -77,17 +77,14 @@ export default {
     },
 
     onMousedown(e) {
-      e.preventDefault()
       this.mdOffsetX = e.offsetX
       this.mdOffsetY = e.offsetY
       document.body.addEventListener('mousemove', this.bindMousemove)
     },
 
     onMouseup(e) {
-      e.preventDefault()
       // this.uploadShow = this.hasMoved ? this.uploadShow : !this.uploadShow
       this.uploadShow = !this.uploadShow
-      console.log(this.uploadShow, this.hasMoved)
       this.hasMoved = false
       document.body.removeEventListener('mousemove', this.bindMousemove)
     },
