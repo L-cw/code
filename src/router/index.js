@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const showEverything = () => import('@/views/showEverything')
+const makeComplaints = () => import('@/views/makeComplaints')
 
 Vue.use(Router)
 
@@ -31,6 +32,10 @@ export default new Router({
         {
           path: 'show-everything',
           component: showEverything
+        },
+        {
+          path: 'makeComplaints',
+          component: makeComplaints
         }
       ]
     }

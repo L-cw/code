@@ -10,6 +10,9 @@
       <li class="nav-item fl">
         <a href="/"> css </a>
       </li>
+      <li class="nav-item fl">
+        <router-link to="/makeComplaints" tag='a'> Make complaints </router-link>
+      </li>
     </div>
   </div>
 </template>
