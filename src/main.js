@@ -7,6 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/googlecode.css'
+import './views/common/iconfont/iconfont.css'
 
 Vue.use(ElementUI)
 
