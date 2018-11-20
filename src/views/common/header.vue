@@ -7,6 +7,9 @@
       <li class="nav-item fl">
         <router-link to="/shareCode">代码分享</router-link>
       </li>
+      <li class="nav-item fl">
+        <router-link to="/showEverything">文件上传</router-link>
+      </li>
     </div>
   </div>
 </template>
