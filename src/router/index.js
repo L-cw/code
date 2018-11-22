@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+const showEverything = () => import('@/views/showEverything')
+
 Vue.use(Router)
 
 export default new Router({
@@ -25,6 +27,10 @@ export default new Router({
             requireAuth: false
           },
           name: 'index'
+        },
+        {
+          path: 'showEverything',
+          component: showEverything
         },
         {
           path: '/shareCode',

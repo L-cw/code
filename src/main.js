@@ -21,6 +21,8 @@ Vue.prototype.$http = req
 
 Vue.config.productionTip = false
 
+Vue.use(ElementUI)
+
 /* eslint-disable no-new */
 var vm = new Vue({
   el: '#app',

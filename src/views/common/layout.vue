@@ -24,7 +24,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  @import "../../assets/less/base.less";
+
   .layout {
-    padding-top: 60px;
+    padding-top: @header-height;
   }
 </style>
