@@ -14,18 +14,14 @@
           <el-tabs v-model="activeName" @tab-click="handleClick">
             <el-tab-pane name="js">
               <span slot="label" class="share-tab-item"><i class="el-icon-tickets"></i> js</span>
-              <el-card class="box-card">
-                <div slot="header" class="clearfix">
-                  <span>卡片名称</span>
-                  <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
-                </div>
-                <div v-for="o in 4" :key="o" class="text item">
-                  列表内容
-                </div>
-              </el-card>
             </el-tab-pane>
             <el-tab-pane name="css">
               <span slot="label" class="share-tab-item"><i class="el-icon-tickets"></i> css</span>
+              <a class="main-box" target="_blank" href="/share-css/base.html">base.less</a>
+              <a class="main-box" target="_blank" href="/share-css/media-query-css.html">media-query-css.less</a>
+              <a class="main-box" target="_blank" href="/share-css/reset.html">reset.less</a>
+              <a class="main-box" target="_blank" href="/share-css/variable.html">variable.less</a>
+              <a class="main-box" target="_blank" href="/share-css/browser-scroller-style.html">browser-scroller-style.less</a>
             </el-tab-pane>
             <el-tab-pane name="component">
               <span slot="label" class="share-tab-item"><i class="el-icon-tickets"></i> Component</span>
@@ -76,6 +72,20 @@ export default {
       .share-tab-item {
         min-width: 100px;
         padding: 0 10px;
+      }
+      .main-box{
+        display: block;
+        background-color: @bg-white;
+        border-radius: @box-radius;
+        padding: @p-w;
+        margin-bottom: @p-w;
+        transition: all .5s;
+        cursor: pointer;
+        &:hover {
+          transform: translate3d(0, -2px, 3px);
+          box-shadow: 0 2px 12px 0 rgba(7, 7, 7, .13);
+          color: #00d080;
+        }
       }
     }
   }
