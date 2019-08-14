@@ -6,6 +6,7 @@ const showEverything = () => import('@/views/showEverything')
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -45,6 +46,20 @@ export default new Router({
             requireAuth: false
           },
           name: 'sharecode'
+        },
+        {
+          path: '/ins/css',
+          component: resolve => {
+            require(['@/views/interesting/css.vue'], resolve)
+          },
+          meta: {
+            title: {
+              'cn': '有趣的css',
+              'en': 'Interesting CSS'
+            },
+            requireAuth: false
+          },
+          name: 'interestingCSS'
         },
         {
           path: '/shareCode/detail',
