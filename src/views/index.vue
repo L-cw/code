@@ -20,7 +20,7 @@ export default {
       list: [
         {
           id: '1',
-          title: '程序猿的中年危机如何解决'
+          title: '程序猿的中年危机如何解决，构建测试'
         },
         {
           id: '2',
